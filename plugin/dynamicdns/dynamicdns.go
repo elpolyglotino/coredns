@@ -1,9 +1,5 @@
 package dynamicdns
 
-/**
- * @author Hossein Boka <i@Ho3e.in>
- */
-
 import (
 	"context"
 	"encoding/json"
@@ -16,6 +12,10 @@ import (
 	"github.com/coredns/coredns/request"
 	"github.com/miekg/dns"
 )
+
+/**
+ * @author Hossein Boka <i@Ho3e.in>
+ */
 
 type DynamicDNS struct {
 	Next    plugin.Handler

@@ -1,14 +1,14 @@
 package dynamicdns
 
-/**
- * @author Hossein Boka <i@Ho3e.in>
- */
-
 import (
 	"github.com/coredns/caddy"
 	"github.com/coredns/coredns/core/dnsserver"
 	"github.com/coredns/coredns/plugin"
 )
+
+/**
+ * @author Hossein Boka <i@Ho3e.in>
+ */
 
 func init() {
 	plugin.Register("dynamicdns", setup)
