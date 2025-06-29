@@ -44,6 +44,7 @@ func TestReload(t *testing.T) {
 }
 
 func send(t *testing.T, server string) {
+	t.Helper()
 	m := new(dns.Msg)
 	m.SetQuestion("whoami.example.org.", dns.TypeSRV)
 
@@ -181,7 +182,7 @@ func TestReloadSeveralTimeMetrics(t *testing.T) {
 		t.Errorf("Prometheus is not listening : %s", err)
 	}
 	reloadCount := 2
-	for i := 0; i < reloadCount; i++ {
+	for i := range reloadCount {
 		serverReload, err := serverWithMetrics.Restart(
 			NewInput(corefileWithMetrics),
 		)
@@ -305,7 +306,7 @@ func TestMetricsAvailableAfterReloadAndFailedReload(t *testing.T) {
 		t.Errorf("Could not scrap one of expected stats : %s", err)
 	}
 
-	for i := 0; i < 2; i++ {
+	for range 2 {
 		// now provide a failed reload
 		invInst, err := inst.Restart(
 			NewInput(invalidCorefileWithMetrics),
